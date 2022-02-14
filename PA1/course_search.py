@@ -20,6 +20,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
+independent (filter by whether or not a class is an independent study)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -47,6 +48,18 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
+        # Angelo's addition:
+        elif command in ['independent', 'is', 'independent_study']:
+            boolean_val = input("Enter True to see only independent studies or " +
+                                "False to only see classes that are not independent studies: ")
+            if str(boolean_val).lower() == "true":
+                boolean_val = True
+            elif str(boolean_val).lower() == "false":
+                boolean_val = False
+            else:
+                print(boolean_val + " is invalid. You must type true or false for this command.")
+                continue
+            schedule = schedule.independent_study_filter(boolean_val)
         else:
             print('command',command,'is not supported')
             continue

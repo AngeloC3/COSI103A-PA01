@@ -42,6 +42,26 @@ class Schedule():
     def subject(self,subjects):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
+    
+    def title(self, phrase):
+        ''' filters courses by which ones have phrase in the title 
+            case insensitive
+            @author Angelo Cataldo
+        '''
+        return Schedule([course for course in self.courses if phrase.lower() in course['name'].lower()])
+    
+    def description(self, phrase):
+        ''' filters courses by which ones have phrase in the description
+            case insensitive
+            @author Angelo Cataldo
+        '''
+        return Schedule([course for course in self.courses if phrase.lower() in course['description'].lower()])
+
+    def independent_study_filter(self, boolean_val):
+        ''' Filters courses by whether or not it is an independent study based on the passed boolean
+            @author Angelo Cataldo
+        '''
+        return Schedule([course for course in self.courses if course['independent_study'] == boolean_val])
 
     def sort(self,field):
         if field=='subject':
