@@ -60,6 +60,11 @@ def topmenu():
                 print(boolean_val + " is invalid. You must type true or false for this command.")
                 continue
             schedule = schedule.independent_study_filter(boolean_val)
+        # Su Lei's addition:
+        elif command in ['c','section']:
+            subj = input("enter a course name:")
+            section =input("enter a section:")
+            schedule = schedule.section(section,subj)
         else:
             print('command',command,'is not supported')
             continue
