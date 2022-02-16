@@ -55,7 +55,7 @@ class Schedule():
     def coursenum(self, coursenums):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['coursenum'] in coursenums])
-    
+
     def code(self, codeval):
         ''' filters by which courses match the code
             case sensitive
