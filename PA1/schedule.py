@@ -58,10 +58,10 @@ class Schedule():
     
     def code(self, codeval):
         ''' filters by which courses match the code
-            case insensitive
+            case sensitive
             @author Angelo Cataldo
         '''
-        return Schedule([course for course in self.courses if codeval.lower() in course['code'].lower() ])
+        return Schedule([course for course in self.courses if codeval in course['code'] ])
 
     def title(self, phras):
         ''' filters courses by which ones have phrase in the title
