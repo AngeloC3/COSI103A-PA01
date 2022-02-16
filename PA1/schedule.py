@@ -42,6 +42,10 @@ class Schedule():
     def subject(self,subjects):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
+
+    def coursenum(self,subjects):
+        ''' subject filters the courses by subject '''
+        return Schedule([course for course in self.courses if course['coursenum'] in coursenums]) # wtf is codenums from
     
     def title(self, phrase):
         ''' filters courses by which ones have phrase in the title 

@@ -23,6 +23,13 @@ timeofday (filter by day and time, e.g. meets at 11 on Wed)
 independent (filter by whether or not a class is an independent study)
 '''
 
+# your team should add the following features to the course_search.py script
+# course  -- filter by subject/coursenumber
+# instructor -- filter by instructor email or lastname
+# title -- filter by phrase in the title
+# description -- filter by phrase in the description
+# Create your own filter (each team member creates their own)
+
 terms = {c['term'] for c in schedule.courses}
 
 def topmenu():
@@ -60,6 +67,25 @@ def topmenu():
                 print(boolean_val + " is invalid. You must type true or false for this command.")
                 continue
             schedule = schedule.independent_study_filter(boolean_val)
+        # Josh's addition (Question 7) (Angelo wrote many of these functions, like a boss)
+        # Filter by subject/coursenumber
+        elif command in ['c','course']:
+            code = input("enter a subject code or class number:")
+            schdl1 = schedule.code([code])
+            schdl2 = schedule.coursenum([code])
+            schedule = dict(schdl1.items() + schdl2.items())
+        elif command in ['i','instructor']:
+            # email OR lastname
+            instructor = input("enter an instructor lastname or email:")
+            schdl1 = schedule.lastname([instructor])
+            schdl2 = schedule.email([instructor])
+            schedule = dict(schdl1.items() + schdl2.items())
+        elif command in ['ti','title','name','n']:
+            title = input("enter a name:")
+            schedule = schedule.title([title])
+        elif command in ['d','description','desc']:
+            desc = input("enter a name:")
+            schedule = schedule.description([desc])
         else:
             print('command',command,'is not supported')
             continue
