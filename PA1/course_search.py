@@ -55,7 +55,6 @@ def topmenu():
             SCHEDULE.load_courses()
             SCHEDULE = SCHEDULE.enrolled(range(5, 1000))
             continue
-
         elif command in ['s', 'subject']:
             subject = input("enter a subject:")
             SCHEDULE = SCHEDULE.subject([subject])
@@ -78,8 +77,7 @@ def topmenu():
             code = input("enter a subject code or class number:")
             schdl1, schdl2 = SCHEDULE.code([code]), SCHEDULE.coursenum([code])
             SCHEDULE = dict(schdl1.items() + schdl2.items())
-        elif command in ['i', 'instructor']:
-            # email OR lastname
+        elif command in ['i', 'instructor']:  # email OR lastname
             instructor = input("enter an instructor lastname or email:")
             schdl1, schdl2 = SCHEDULE.lastname(
                 [instructor]), SCHEDULE.email([instructor])
