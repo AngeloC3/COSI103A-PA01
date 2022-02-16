@@ -72,6 +72,12 @@ class Schedule():
             @author Su Lei Yadanar
         '''
         return Schedule([course for course in self.courses if course_name.lower() in course['name'].lower() and course['section']==section])
+    
+    def times(self, times):
+        ''' filters courses by time period
+            @author Andrew Chen
+        '''
+        return Schedule([course for course in self.courses if course['times'] == times])
 
     def sort(self,field):
         if field=='subject':

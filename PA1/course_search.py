@@ -91,6 +91,11 @@ def topmenu():
             subj = input("enter a course name:")
             section =input("enter a section:")
             schedule = schedule.section(section,subj)
+        # Andrew's addition:
+        # Time and subject
+        elif command in ['tim', 'times']:
+            timeofday = input("enter a day and time:")
+            schedule = schedule.times([times])
         else:
             print('command',command,'is not supported')
             continue
