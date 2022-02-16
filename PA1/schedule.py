@@ -69,14 +69,14 @@ class Schedule():
             case insensitive
             @author Angelo Cataldo
         '''
-        return Schedule([cours for cours in self.courses if phras.lower() in cours['name'].lower()])
+        return Schedule([cours for cours in self.courses if phras in cours['name']])
 
     def description(self, phra):
         ''' filters courses by which ones have phrase in the description
             case insensitive
             @author Angelo Cataldo
         '''
-        return Schedule([cou for cou in self.courses if phra.lower() in cou['description'].lower()])
+        return Schedule([cou for cou in self.courses if phra in cou['description']])
 
     def independent_study_filter(self, bool_val):
         ''' Filters courses by whether or not it is an independent study based on the passed boolean
