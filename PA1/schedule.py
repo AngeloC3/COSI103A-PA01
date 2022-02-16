@@ -66,6 +66,12 @@ class Schedule():
             @author Angelo Cataldo
         '''
         return Schedule([course for course in self.courses if course['independent_study'] == boolean_val])
+    def section(self, section, course_name):
+        '''
+            Filters courses by their name and section
+            @author Su Lei Yadanar
+        '''
+        return Schedule([course for course in self.courses if course_name.lower() in course['name'].lower() and course['section']==section])
 
     def sort(self,field):
         if field=='subject':

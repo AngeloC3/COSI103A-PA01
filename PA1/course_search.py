@@ -69,7 +69,7 @@ def topmenu():
             schedule = schedule.independent_study_filter(boolean_val)
         # Josh's addition (Question 7) (Angelo wrote many of these functions, like a boss)
         # Filter by subject/coursenumber
-        elif command in ['c','course']:
+        elif command in ['course']:
             code = input("enter a subject code or class number:")
             schdl1 = schedule.code([code])
             schdl2 = schedule.coursenum([code])
@@ -86,6 +86,11 @@ def topmenu():
         elif command in ['d','description','desc']:
             desc = input("enter a name:")
             schedule = schedule.description([desc])
+        # Su Lei's addition:
+        elif command in ['c','section']:
+            subj = input("enter a course name:")
+            section =input("enter a section:")
+            schedule = schedule.section(section,subj)
         else:
             print('command',command,'is not supported')
             continue
