@@ -61,11 +61,8 @@ class Schedule():
             case sensitive
             @author Angelo Cataldo
         '''
-<<<<<<< HEAD
+
         return Schedule([course for course in self.courses if codeval in course['code']])
-=======
-        return Schedule([course for course in self.courses if codeval in course['code'] ])
->>>>>>> 7dbd1ad909a8b0f0a36b6d3d97f4151567287023
 
     def title(self, phras):
         ''' filters courses by which ones have phrase in the title
