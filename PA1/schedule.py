@@ -38,7 +38,7 @@ class Schedule():
         '''
         combine the instructor last name and email seraches into one
         '''
-        return Schedule([course for course in self.courses if instructors.lower() in course['instructor'].lower() ])
+        return Schedule([course for course in self.courses if instructors in course['instructor']])
 
     def term(self, terms):
         ''' email returns the courses in a list of term'''
