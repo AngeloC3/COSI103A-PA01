@@ -76,12 +76,13 @@ def topmenu():
         elif command in ['course']:
             code = input("enter a subject code or class number:")
             schdl1, schdl2 = SCHEDULE.code([code]), SCHEDULE.coursenum([code])
-            SCHEDULE = dict(schdl1.items() + schdl2.items())
-        elif command in ['i', 'instructor']:  # email OR lastname
+            SCHEDULE = SCHEDULE.code([code])
+        elif command in ['i', 'instructor']:
+
+            # email OR lastname
+
             instructor = input("enter an instructor lastname or email:")
-            schdl1, schdl2 = SCHEDULE.lastname(
-                [instructor]), SCHEDULE.email([instructor])
-            SCHEDULE = dict(schdl1.items() + schdl2.items())
+            SCHEDULE = SCHEDULE.instructor([instructor])
         elif command in ['ti', 'title', 'name', 'n']:
             title = input("enter a name:")
             SCHEDULE = SCHEDULE.title([title])
