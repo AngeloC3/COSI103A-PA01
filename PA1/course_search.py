@@ -76,17 +76,17 @@ def topmenu():
         # Filter by subject/coursenumber
         elif command in ['course']:
             code = input("enter a subject code or class number:")
-            SCHEDULE = SCHEDULE.code([code])
+            SCHEDULE = SCHEDULE.code(code)
         elif command in ['i', 'instructor']:
             # email OR lastname
             instructor = input("enter an instructor lastname or email:")
-            SCHEDULE = SCHEDULE.instructor([instructor])
+            SCHEDULE = SCHEDULE.instructor(instructor)
         elif command in ['ti', 'title', 'name', 'n']:
             title = input("enter a name:")
-            SCHEDULE = SCHEDULE.title([title])
+            SCHEDULE = SCHEDULE.title(title)
         elif command in ['d', 'description', 'desc']:
             desc = input("enter a name:")
-            SCHEDULE = SCHEDULE.description([desc])
+            SCHEDULE = SCHEDULE.description(desc)
         # Su Lei's addition:
         elif command in ['l', 'limit']:
             limit = int(input("enter a class size limit:"))
