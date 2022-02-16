@@ -76,8 +76,7 @@ def topmenu():
         # Filter by subject/coursenumber
         elif command in ['course']:
             code = input("enter a subject code or class number:")
-            schdl1, schdl2 = SCHEDULE.code([code]), SCHEDULE.coursenum([code])
-            SCHEDULE = dict(schdl1.items() + schdl2.items())
+            SCHEDULE = SCHEDULE.code([code])
         elif command in ['i', 'instructor']:
             # email OR lastname
             instructor = input("enter an instructor lastname or email:")
