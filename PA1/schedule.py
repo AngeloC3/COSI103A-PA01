@@ -70,12 +70,12 @@ class Schedule():
         '''
         return Schedule([cours for cours in self.courses if cours['independent_study'] == bool_val])
 
-    def section(self, sect, name):
+    def limit(self, limit):
         '''
-            Filters courses by their name and section
+            Filters courses by their class size limit
             @author Su Lei Yadanar
         '''
-        return Schedule([cou for cou in self.courses if name.lower() in cou['name'].lower() and cou['section'] == sect])
+        return Schedule([course for course in self.courses if course['limit'] == limit])
 
     def sort(self, field):
         '''
