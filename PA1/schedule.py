@@ -90,6 +90,13 @@ class Schedule():
         '''
         return Schedule([course for course in self.courses if course['limit'] == limit])
 
+    def times(self, times):
+        '''
+            Filters courses by time period
+            @author Andrew Chen
+        '''
+        return Schedule([course for course in self.courses if course['times'] == times])
+
     def sort(self, field):
         '''
             Check if the filter method exists or not
