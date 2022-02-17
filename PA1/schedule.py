@@ -69,14 +69,14 @@ class Schedule():
             case insensitive
             @author Angelo Cataldo
         '''
-        return Schedule([cours for cours in self.courses if phras in cours['name']])
+        return Schedule([cours for cours in self.courses if phras.lower() in cours['name'].lower()])
 
     def description(self, phra):
         ''' filters courses by which ones have phrase in the description
             case insensitive
             @author Angelo Cataldo
         '''
-        return Schedule([cou for cou in self.courses if phra in cou['description']])
+        return Schedule([cou for cou in self.courses if phra.lower() in cou['description'].lower()])
 
     def independent_study_filter(self, bool_val):
         ''' Filters courses by whether or not it is an independent study based on the passed boolean
@@ -89,14 +89,18 @@ class Schedule():
             Filters courses by their class size limit
             @author Su Lei Yadanar
         '''
-        return Schedule([course for course in self.courses if course['limit'] == limit])
+        return Schedule([course for course in self.courses if course_name.lower() in course['name'].lower() and course['section']==section])
 
-    def sort(self, field):
+    def times(self, times):
         '''
-            Check if the filter method exists or not
-            @author Joshua Liu
+            Filters courses by time period
+            @author Andrew Chen
         '''
-        if field == 'subject':
-            return Schedule(sorted(self.courses, key=lambda course: course['subject']))
-        print("can't sort by "+str(field)+" yet")
-        return self
+        return Schedule([course for course in self.courses if course['times'] == times])
+
+    def sort(self,field):
+        if field=='subject':
+            return Schedule(sorted(self.courses, key= lambda course: course['subject']))
+        else:
+            print("can't sort by "+str(field)+" yet")
+            return self
