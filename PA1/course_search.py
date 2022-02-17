@@ -52,7 +52,7 @@ def topmenu():
         elif command in ['s', 'subject']:
             subject = input("enter a subject:")
             SCHEDULE = SCHEDULE.subject([subject])
-        # Angelo's addition (edit for submission video):
+        # Angelo's addition (edit for submisison video and git):
         elif command in ['independent', 'is', 'independent_study']:
             boolean_val = input("Enter True to see only independent studies or " +
                                 "False to only see classes that are not independent studies: ")
