@@ -85,8 +85,8 @@ def topmenu():
             limit = int(input("enter a class size limit:"))
             SCHEDULE = SCHEDULE.limit(limit)
         elif command in ['tim', 'times']:
-            times = input("enter a time")
-            SCHEDULE = SCHEDULE.times(times)
+            timeofday = input("enter a time and day")
+            SCHEDULE = SCHEDULE.timeofday(times)
         else:
             print('command', command, 'is not supported')
             continue
