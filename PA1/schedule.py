@@ -34,11 +34,11 @@ class Schedule():
         ''' email returns the courses by a particular instructor email'''
         return Schedule([course for course in self.courses if course['instructor'][2] in emails])
 
-    def instructor(self, instructors):
+    def instructor(self, inst):
         '''
         combine the instructor last name and email seraches into one
         '''
-        return Schedule([course for course in self.courses if instructors in course['instructor']])
+        return Schedule([cou for cou in self.courses if inst.lower() in cou['instructor'].lower()])
 
     def term(self, terms):
         ''' email returns the courses in a list of term'''
@@ -58,11 +58,10 @@ class Schedule():
 
     def code(self, codeval):
         ''' filters by which courses match the code
-            case sensitive
+            case insensitive
             @author Angelo Cataldo
         '''
-
-        return Schedule([course for course in self.courses if codeval in course['code']])
+        return Schedule([cou for cou in self.courses if codeval.lower() in cou['code'].lower()])
 
     def title(self, phras):
         ''' filters courses by which ones have phrase in the title
@@ -89,18 +88,14 @@ class Schedule():
             Filters courses by their class size limit
             @author Su Lei Yadanar
         '''
-        return Schedule([course for course in self.courses if course_name.lower() in course['name'].lower() and course['section']==section])
+        return Schedule([course for course in self.courses if course['limit'] == limit])
 
-    def times(self, times):
+    def sort(self, field):
         '''
-            Filters courses by time period
-            @author Andrew Chen
+            Check if the filter method exists or not
+            @author Joshua Liu
         '''
-        return Schedule([course for course in self.courses if course['times'] == times])
-
-    def sort(self,field):
-        if field=='subject':
-            return Schedule(sorted(self.courses, key= lambda course: course['subject']))
-        else:
-            print("can't sort by "+str(field)+" yet")
-            return self
+        if field == 'subject':
+            return Schedule(sorted(self.courses, key=lambda course: course['subject']))
+        print("can't sort by "+str(field)+" yet")
+        return self

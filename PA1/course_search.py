@@ -2,15 +2,11 @@
 course_search is a Python script using a terminal based menu to help
 students search for courses they might want to take at Brandeis
 '''
-
 from schedule import Schedule
-
-
 SCHEDULE = Schedule()
 SCHEDULE.load_courses()
 # eliminate courses with no students
 SCHEDULE = SCHEDULE.enrolled(range(5, 1000))
-
 TOP_LEVEL_MENU = '''
 quit
 reset
@@ -24,14 +20,12 @@ limit (filter by the class size limit)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
 independent (filter by whether or not a class is an independent study)
 '''
-
 # your team should add the following features to the course_search.py script
 # course  -- filter by subject/coursenumber
 # instructor -- filter by instructor email or lastname
 # title -- filter by phrase in the title
 # description -- filter by phrase in the description
 # Create your own filter (each team member creates their own)
-
 terms = {c['term'] for c in SCHEDULE.courses}
 
 
@@ -87,23 +81,12 @@ def topmenu():
             desc = input("enter a name:")
             SCHEDULE = SCHEDULE.description(desc)
         # Su Lei's addition:
-        elif command in ['c','section']:
-            subj = input("enter a course name:")
-            section =input("enter a section:")
-            schedule = schedule.section(section,subj)
-        # Andrew's addition:
-        # Time and subject
-        elif command in ['tim', 'times']:
-            timeofday = input("enter a day and time:")
-            schedule = schedule.times([times])
-            
         elif command in ['l', 'limit']:
             limit = int(input("enter a class size limit:"))
             SCHEDULE = SCHEDULE.limit(limit)
         else:
             print('command', command, 'is not supported')
             continue
-
         print("courses has", len(SCHEDULE.courses), 'elements', end="\n\n")
         print('here are the first 10')
         for course in SCHEDULE.courses[:10]:
