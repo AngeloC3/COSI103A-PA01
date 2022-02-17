@@ -58,10 +58,10 @@ class Schedule():
 
     def code(self, codeval):
         ''' filters by which courses match the code
-            case sensitive
+            case insensitive
             @author Angelo Cataldo
         '''
-        return Schedule([cou for cou in self.courses if codeval in cou['code']])
+        return Schedule([cou for cou in self.courses if codeval.lower() in cou['code'].lower()])
 
     def title(self, phras):
         ''' filters courses by which ones have phrase in the title
@@ -95,7 +95,7 @@ class Schedule():
             Filters courses by days met
             @author Andrew Chen
         '''
-        return Schedule([course for course in self.courses if course['times']['days'] == days])
+        return Schedule([course for course in self.courses if course['times']['days'] == days[d] for d in days])
 
     def sort(self, field):
         '''
@@ -106,11 +106,3 @@ class Schedule():
             return Schedule(sorted(self.courses, key=lambda course: course['subject']))
         print("can't sort by "+str(field)+" yet")
         return self
-
-
-# s = Schedule([{'limit': 5, 'name': "Biology"}, {'limit': 10,
-#              'name': "History"}, {'limit': 5, 'name': "COSI"}])
-
-# class_limit = s.limit(5)
-# first = class_limit.courses[0]
-# print(first)
