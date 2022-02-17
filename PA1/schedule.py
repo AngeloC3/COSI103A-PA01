@@ -90,12 +90,12 @@ class Schedule():
         '''
         return Schedule([course for course in self.courses if course['limit'] == limit])
 
-    def times(self, times):
+    def days(self, days):
         '''
-            Filters courses by time period
+            Filters courses by days met
             @author Andrew Chen
         '''
-        return Schedule([course for course in self.courses if course['times'] == times])
+        return Schedule([course for course in self.courses if course['times']['days'] == days])
 
     def sort(self, field):
         '''
