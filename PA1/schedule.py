@@ -106,3 +106,11 @@ class Schedule():
             return Schedule(sorted(self.courses, key=lambda course: course['subject']))
         print("can't sort by "+str(field)+" yet")
         return self
+
+
+# s = Schedule([{'limit': 5, 'name': "Biology"}, {'limit': 10,
+#              'name': "History"}, {'limit': 5, 'name': "COSI"}])
+
+# class_limit = s.limit(5)
+# first = class_limit.courses[0]
+# print(first)
