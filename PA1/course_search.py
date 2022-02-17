@@ -52,7 +52,7 @@ def topmenu():
         elif command in ['s', 'subject']:
             subject = input("enter a subject:")
             SCHEDULE = SCHEDULE.subject([subject])
-        # Angelo's addition:
+        # Angelo's addition (edit for submisison video and git):
         elif command in ['independent', 'is', 'independent_study']:
             boolean_val = input("Enter True to see only independent studies or " +
                                 "False to only see classes that are not independent studies: ")
@@ -86,7 +86,7 @@ def topmenu():
             SCHEDULE = SCHEDULE.limit(limit)
         elif command in ['tim', 'times']:
             timeofday = input("enter a time and day")
-            SCHEDULE = SCHEDULE.timeofday(times)
+            SCHEDULE = SCHEDULE.times(timeofday)
         else:
             print('command', command, 'is not supported')
             continue
