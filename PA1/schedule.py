@@ -37,6 +37,7 @@ class Schedule():
     def instructor(self, inst):
         '''
         combine the instructor last name and email seraches into one
+        @author Joshua Liu
         '''
         return Schedule([cou for cou in self.courses if inst in cou['instructor']])
 
