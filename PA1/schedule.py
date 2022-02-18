@@ -41,6 +41,26 @@ class Schedule():
         '''
         return Schedule([cou for cou in self.courses if inst in cou['instructor']])
 
+    def alphabetical_description(self, field):
+        '''
+        All courses with a name or description in which every word is in alphabetical order
+        @author Joshua Liu
+        '''
+        output = []
+        for course in self.courses:
+            isAlphabetical = True
+            letter = "a"
+            word_array = course[field].split()
+            for word in word_array:
+                word = word.lower()
+                if word[0] < letter:
+                    isAlphabetical = False
+                else:
+                    letter = word[0]
+            if isAlphabetical:
+                output.append(course)
+        return Schedule(output)
+
     def term(self, terms):
         ''' email returns the courses in a list of term'''
         return Schedule([course for course in self.courses if course['term'] in terms])
@@ -101,7 +121,6 @@ class Schedule():
     def sort(self, field):
         '''
             Check if the filter method exists or not
-            @author Joshua Liu
         '''
         if field == 'subject':
             return Schedule(sorted(self.courses, key=lambda course: course['subject']))

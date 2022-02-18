@@ -80,6 +80,9 @@ def topmenu():
         elif command in ['d', 'description', 'desc']:
             desc = input("enter a description:")
             SCHEDULE = SCHEDULE.description(desc)
+        elif command in ['alphabet','abc']:
+            field = input("enter a field to search:")
+            SCHEDULE = SCHEDULE.alphabetical_description(field)
         # Su Lei's addition:
         elif command in ['l', 'limit']:
             limit = int(input("enter a class size limit:"))
