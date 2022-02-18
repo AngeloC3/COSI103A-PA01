@@ -75,10 +75,10 @@ def topmenu():
             instructor = input("enter an instructor lastname or email:")
             SCHEDULE = SCHEDULE.instructor(instructor)
         elif command in ['ti', 'title', 'name', 'n']:
-            title = input("enter a name:")
+            title = input("enter a title:")
             SCHEDULE = SCHEDULE.title(title)
         elif command in ['d', 'description', 'desc']:
-            desc = input("enter a name:")
+            desc = input("enter a description:")
             SCHEDULE = SCHEDULE.description(desc)
         # Su Lei's addition:
         elif command in ['l', 'limit']:
