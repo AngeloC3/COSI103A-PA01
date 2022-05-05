@@ -86,3 +86,11 @@ class Schedule():
             return Schedule(sorted(self.courses, key=lambda course: course['subject']))
         print("can't sort by "+str(field)+" yet")
         return self
+    
+    def day(self, day):
+        '''
+            Filters courses by what day it meets
+            @author Andrew Chen
+        '''
+        return Schedule([course for course in self.courses if course['day']==day])
+
