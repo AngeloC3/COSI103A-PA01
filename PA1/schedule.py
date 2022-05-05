@@ -111,12 +111,19 @@ class Schedule():
         '''
         return Schedule([course for course in self.courses if course['limit'] == limit])
 
+    def times(self, times):
+        '''
+            Filters courses by times met
+            @author Andrew Chen
+        '''
+        return Schedule([course for course in self.courses if course['times'] == times])
+    
     def days(self, days):
         '''
             Filters courses by days met
             @author Andrew Chen
         '''
-        return Schedule([course for course in self.courses if course['times']['days'] == days[d] for d in days])
+        return Schedule([course for course in self.courses if course['days'] == days])
 
     def sort(self, field):
         '''

@@ -89,11 +89,11 @@ def topmenu():
             SCHEDULE = SCHEDULE.limit(limit)
         #Andrew's addition:
         elif command in ['da', 'days']:
-            day = input("enter a day")
-            SCHEDULE = SCHEDULE.timeofday(days)
+            day = input("enter a day:")
+            SCHEDULE = SCHEDULE.days(day)
         elif command in ['tim', 'times']:
-            timeofday = input("enter a time and day")
-            SCHEDULE = SCHEDULE.timeofday(times)
+            time = input("enter a time:")
+            SCHEDULE = SCHEDULE.timeofday(time)
         else:
             print('command', command, 'is not supported')
             continue
